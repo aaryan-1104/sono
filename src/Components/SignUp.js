@@ -20,7 +20,7 @@ const SignUp = (props) => {
             setCred({password:"",cpassword:""})
             return
         }
-        const response=await fetch(`http://localhost:5000/api/auth/createUser`,
+        const response=await fetch(`https://sono-backend.herokuapp.com/api/auth/createUser`,
         {
                 method:'POST',
                 headers:{
