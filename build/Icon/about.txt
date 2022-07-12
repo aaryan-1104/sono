@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: WindSong
+- Font Author: Copyright 2013 The WindSong Project Authors (https://github.com/googlefonts/windsong)
+- Font Source: http://fonts.gstatic.com/s/windsong/v5/KR1WBsyu-P-GFEW57r95HdG6vjH3.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
