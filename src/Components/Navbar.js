@@ -28,8 +28,6 @@ const NavBar=()=> {
     }
 
     const handleSignout=()=>{
-      localStorage.removeItem("token")
-      localStorage.removeItem("username")
       localStorage.clear()
       navigate("/login")
     }
