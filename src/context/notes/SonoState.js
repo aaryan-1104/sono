@@ -27,8 +27,6 @@ const SonoState = (props) => {
   const initialCartCount=0;
   const [cartCount, setCartCount]= useState(initialCartCount)
 
-  const [stripeToken, setstripeToken] = useState(null);
-
   const [loading, setLoading]=useState(false)
 
   const initialFilterProduct=[];
@@ -561,7 +559,6 @@ const SonoState = (props) => {
   
   //Todo Add the Stripe Token  for Payment
   const setstripePaymentToken=(token)=>{
-    // setstripeToken(token);
     localStorage.setItem('stripeToken', JSON.stringify(token))
     console.log(JSON.parse(localStorage.getItem('stripeToken')))
   }
@@ -572,7 +569,6 @@ const SonoState = (props) => {
 
     const url = "https://sono-backend.herokuapp.com/api/checkout/payment"
     setLoading(true);
-    // setPaymentStatus(false);
     const data={
       "tokenId":stripeToken.id,
       "amount":cartValue,
@@ -608,10 +604,8 @@ const SonoState = (props) => {
         })
         const json1 = await response.json();
         setYourOrderList(json1)
-        // setPaymentStatus(true);
         setCart(initialCart);
         setCartItemCount(0);
-        // if(paymentStatus)
         setLoading(false);
         navigate("/shop/payment/success")
         localStorage.removeItem('stripeToken')
@@ -659,7 +653,7 @@ const SonoState = (props) => {
   
   return (
     <SonoContext.Provider
-    value={{loading, products, getProducts, productDetail, getProductDetail, wishlist, addToWishlist, getWishlist, removeFromWishlist, cart, getCart, addToCart, removeFromCart, cartValue, addressList, getAddress, addAddress, updateAddress, setPrimaryAddress, deleteAddress, yourOrderList, getYourOrders, stripeToken, setstripePaymentToken, makePaymentRequest, cartCount, setCartItemCount, setProductFilterCategory, getFilteredProduct, filteredProducts, searchedProducts, searchProducts, updateQuantity}}
+    value={{loading, products, getProducts, productDetail, getProductDetail, wishlist, addToWishlist, getWishlist, removeFromWishlist, cart, getCart, addToCart, removeFromCart, cartValue, addressList, getAddress, addAddress, updateAddress, setPrimaryAddress, deleteAddress, yourOrderList, getYourOrders, setstripePaymentToken, makePaymentRequest, cartCount, setCartItemCount, setProductFilterCategory, getFilteredProduct, filteredProducts, searchedProducts, searchProducts, updateQuantity}}
     >
       {props.children}
     </SonoContext.Provider>
