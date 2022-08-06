@@ -10,7 +10,7 @@ import StripeCheckout from 'react-stripe-checkout';
 const CartList = () => {
     const context=useContext(sonoContext)
     const {loading, cart, getCart, cartValue, setstripePaymentToken, makePaymentRequest}=context;
-    const address=localStorage.getItem("primaryAddress") === undefined?{} : JSON.parse(localStorage.getItem("primaryAddress"));
+    const address=localStorage.getItem("primaryAddress")? JSON.parse(localStorage.getItem("primaryAddress")):{};
     const location=useLocation()
 
     useEffect(() => {

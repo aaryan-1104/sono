@@ -252,12 +252,8 @@ const SonoState = (props) => {
     else{
       const primaryAddress=JSON.stringify(json.addressPrimary[0])
 
-      if(!localStorage.getItem("primaryAddress")){
+      if(json.addressPrimary[0]!==undefined){
         localStorage.setItem("primaryAddress",primaryAddress);
-      }
-      else{
-        localStorage.removeItem("primaryAddress");
-        localStorage.setItem("primaryAddress",primaryAddress)
       }
     }
     //* Changing state of cart        
@@ -403,12 +399,8 @@ const SonoState = (props) => {
     const primaryAddress=JSON.stringify(json.addressPrimary[0])
     // const allAddress=JSON.stringify(json)
     
-    if(!localStorage.getItem("primaryAddress")){
+    if(json.addressPrimary[0]!==undefined){
       localStorage.setItem("primaryAddress",primaryAddress);
-    }
-    else{
-      localStorage.removeItem("primaryAddress");
-      localStorage.setItem("primaryAddress",primaryAddress)
     }
     setAddressList(json.addressList)
   }  
@@ -544,15 +536,9 @@ const SonoState = (props) => {
     if(json.success){
       const primaryAddress=JSON.stringify(json.addressPrimary[0])
       // const allAddress=JSON.stringify(json)
-      
-      if(!localStorage.getItem("primaryAddress")){
+      if(json.addressPrimary[0]!==undefined){
         localStorage.setItem("primaryAddress",primaryAddress);
       }
-      else{
-        localStorage.removeItem("primaryAddress");
-        localStorage.setItem("primaryAddress",primaryAddress)
-      }
-      
       setAddressList(json.address)
     }
   }
