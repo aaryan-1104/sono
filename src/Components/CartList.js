@@ -10,7 +10,7 @@ import StripeCheckout from 'react-stripe-checkout';
 const CartList = () => {
     const context=useContext(sonoContext)
     const {loading, cart, getCart, cartValue, stripeToken, setstripePaymentToken, makePaymentRequest}=context;
-    const address=JSON.parse(localStorage.getItem("primaryAddress"))
+    const address=localStorage.getItem("primaryAddress")==!undefined? JSON.parse(localStorage.getItem("primaryAddress")) : {};
     const location=useLocation()
 
     useEffect(() => {
@@ -20,7 +20,9 @@ const CartList = () => {
     
     const onToken=(token)=>{
         setstripePaymentToken(token);
-        stripeToken && makePaymentRequest();
+        setTimeout(()=>{
+            JSON.parse(localStorage.getItem('stripeToken')) && makePaymentRequest();
+        },4000)
     }
     
     const onOpened=()=>{

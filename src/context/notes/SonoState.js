@@ -561,11 +561,15 @@ const SonoState = (props) => {
   
   //Todo Add the Stripe Token  for Payment
   const setstripePaymentToken=(token)=>{
-    setstripeToken(token);
+    // setstripeToken(token);
+    localStorage.setItem('stripeToken', JSON.stringify(token))
+    console.log(JSON.parse(localStorage.getItem('stripeToken')))
   }
 
   //Todo Add items to "Your Order" section with order Id(Along with Payment)
   const makePaymentRequest= async()=>{
+    const stripeToken=JSON.parse(localStorage.getItem('stripeToken'))
+
     const url = "https://sono-backend.herokuapp.com/api/checkout/payment"
     setLoading(true);
     // setPaymentStatus(false);
@@ -610,6 +614,7 @@ const SonoState = (props) => {
         // if(paymentStatus)
         setLoading(false);
         navigate("/shop/payment/success")
+        localStorage.removeItem('stripeToken')
       }
     };
     
