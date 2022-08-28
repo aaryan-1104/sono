@@ -312,7 +312,7 @@ const HomeRemain = () => {
         </div>
       </div>
 
-      <div className="" style={{"backgroundColor":"#FFC1AD"}} >
+      {/* <div className="" style={{"backgroundColor":"#FFC1AD"}} >
         <h2 className="py-3 px-3">Trending in Western Wear</h2>
         <div className="d-flex flex-col">
           <div className="card-group mb-5">
@@ -499,7 +499,7 @@ const HomeRemain = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
