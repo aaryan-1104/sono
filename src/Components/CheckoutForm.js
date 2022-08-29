@@ -25,6 +25,8 @@ const CARD_ELEMENT_OPTIONS = {
 };
 
 export default function CheckoutForm(props) {
+  const API_URL = "https://sono-backend.herokuapp.com";
+
   const context = useContext(sonoContext)
   const {manageStateAfterPayment}=context;
   
@@ -79,7 +81,7 @@ export default function CheckoutForm(props) {
   };
 
 //!Complete State Segment
-  const API_ENDPOINT = 'http://localhost:5000/api/checkout/';
+  const API_ENDPOINT = `${API_URL}/api/checkout`;
   const stripePaymentMethodHandler = async (data, callback) => {
     const { amount, result } = data;
     if (result.error) {
@@ -130,7 +132,7 @@ export default function CheckoutForm(props) {
           "shippingAddress":localStorage.getItem('primaryAddress')?localStorage.getItem('primaryAddress'):"Dummy",
         }
 
-        const url='http://localhost:5000/api/orders/addOrder';
+        const url=`${API_URL}/api/orders/addOrder`;
         const response=await fetch(url,{
           method:'POST',
           headers:{

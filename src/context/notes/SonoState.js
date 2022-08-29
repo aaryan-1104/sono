@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 // import { useParams } from "react-router";
 
 const SonoState = (props) => {
+  const API_URL = "https://sono-backend.herokuapp.com";
+
   const initialProducts = [];
   const [products, setProducts] = useState(initialProducts);
   const [productDetail, setProductDetail] = useState(initialProducts);
@@ -89,7 +91,7 @@ const SonoState = (props) => {
   //todo get Filtered Products 
   const getFilteredProduct = async()=>{
     setLoading(true)
-    const url = "http://localhost:5000/api/shop/getAllProducts/filter"
+    const url = `${API_URL}/api/shop/getAllProducts/filter`
     
     //* Api Call
     const response = await fetch(url, {
@@ -108,7 +110,7 @@ const SonoState = (props) => {
   //todo get Products 
   const getProducts = async (categ) => {
     setLoading(true)
-    const url = "http://localhost:5000/api/shop/getAllProducts"
+    const url = `${API_URL}/api/shop/getAllProducts`
 
     //* Api Call
     const response = await fetch(url, {
@@ -128,7 +130,7 @@ const SonoState = (props) => {
   //todo get Product details 
   const getProductDetail = async (id) => {
     setLoading(true)
-    const url = "http://localhost:5000/api/shop/getProduct"
+    const url = `${API_URL}/api/shop/getProduct`
 
     //* Api Call
     const response = await fetch(url, {
@@ -156,7 +158,7 @@ const SonoState = (props) => {
   // TODO Add to Wishlist
   const addToWishlist = async (productId) => {
     setLoading(true)
-    const url = `http://localhost:5000/api/wishlist/addToWishlist`;
+    const url = `${API_URL}/api/wishlist/addToWishlist`;
 
   //* Api Call
     const response = await fetch(url, {
@@ -196,7 +198,7 @@ const SonoState = (props) => {
   // TODO Get the Wishlist
   const getWishlist=async()=>{
     setLoading(true)
-    const url='http://localhost:5000/api/wishlist/getWishlist'
+    const url=`${API_URL}/api/wishlist/getWishlist`
 
     const response=await fetch(url,{
       method:"GET",
@@ -215,7 +217,7 @@ const SonoState = (props) => {
   //todo: Remove From Wishlist
   const removeFromWishlist = async(productWishId) => {
     //* Api Call
-    const url = `http://localhost:5000/api/wishlist/removeFromWishlist`
+    const url = `${API_URL}/api/wishlist/removeFromWishlist`
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
@@ -238,7 +240,7 @@ const SonoState = (props) => {
 
   //Todo Get the cart
   const getCart=async()=>{
-    const url="http://localhost:5000/api/cart/getCart";
+    const url=`${API_URL}/api/cart/getCart`;
     setLoading(true)
     
     //*Api call
@@ -273,7 +275,7 @@ const SonoState = (props) => {
 
   //Todo Added to cart
   const addToCart=async(productId)=>{
-    const url="http://localhost:5000/api/cart/addToCart";
+    const url=`${API_URL}/api/cart/addToCart`;
     setLoading(true)
     
     //*Api call
@@ -322,7 +324,7 @@ const SonoState = (props) => {
   //TODO: Update quantity of a Product in Cart
   const updateQuantity = async(bool,cartProductId)=>{
 
-    const url = `http://localhost:5000/api/cart/updateCart`
+    const url = `${API_URL}/api/cart/updateCart`
     const response = await fetch(url, {
       method:"PUT",
       headers:{
@@ -353,7 +355,7 @@ const SonoState = (props) => {
   //todo: Remove From Cart
   const removeFromCart = async(productCartId) => {
     //* Api Call
-    const url = `http://localhost:5000/api/cart/removeFromCart`
+    const url = `${API_URL}/api/cart/removeFromCart`
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
@@ -376,7 +378,7 @@ const SonoState = (props) => {
   
   //todo: Add a new address
   const addAddress=async(firstName,lastName,contactNumber,addressLine1,addressLine2,pincode,city,district,state,country)=>{
-    const url= "http://localhost:5000/api/address/addAddress";
+    const url= `${API_URL}/api/address/addAddress`;
 
     const address={
       "firstName":firstName,
@@ -414,7 +416,7 @@ const SonoState = (props) => {
   
   //todo: Update a address
   const updateAddress=async(addressId,firstName,lastName,contactNumber,addressLine1,addressLine2,pincode,city,district,state,country)=>{
-    const url= "http://localhost:5000/api/address/updateAddress";
+    const url= `${API_URL}/api/address/updateAddress`;
 
     const address={
       "firstName":firstName,
@@ -469,7 +471,7 @@ const SonoState = (props) => {
   
   //Todo Set the address as Primary Address and remove the older one if exists
   const setPrimaryAddress=async(addressId)=>{
-    const url= "http://localhost:5000/api/address/setPrimary";
+    const url= `${API_URL}/api/address/setPrimary`;
     setLoading(true);
     const response=await fetch(url,{
       method:"PUT",
@@ -502,7 +504,7 @@ const SonoState = (props) => {
 
   //Todo Delete a Address
   const deleteAddress=async(addressId)=>{
-    const url= "http://localhost:5000/api/address/deleteAddress";
+    const url= `${API_URL}/api/address/deleteAddress`;
     const response=await fetch(url,{
       method:"DELETE",
       headers:{
@@ -528,7 +530,7 @@ const SonoState = (props) => {
 
   //Todo Get all the Addresses
   const getAddress=async()=>{
-    const url= "http://localhost:5000/api/address/getAddress";
+    const url= `${API_URL}/api/address/getAddress`;
     const response=await fetch(url,{
       method:"GET",
       headers:{
@@ -554,7 +556,7 @@ const SonoState = (props) => {
   const makePaymentRequest= async()=>{
     const stripeToken=JSON.parse(localStorage.getItem('stripeToken'))
 
-    const url = "http://localhost:5000/api/checkout/payment"
+    const url = `${API_URL}/api/checkout/payment`
     setLoading(true);
     const data={
       "tokenId":stripeToken.id,
@@ -580,7 +582,7 @@ const SonoState = (props) => {
           "shippingAddress":localStorage.getItem('primaryAddress')
         }
 
-        const url='http://localhost:5000/api/orders/addOrder';
+        const url=`${API_URL}/api/orders/addOrder`;
         const response=await fetch(url,{
           method:'POST',
           headers:{
@@ -601,7 +603,7 @@ const SonoState = (props) => {
     
     //Todo Get all items of "Your Order" section
     const getYourOrders=async()=>{
-      const url= "http://localhost:5000/api/orders/getOrders";
+      const url= `${API_URL}/api/orders/getOrders`;
     setLoading(true)
     const response=await fetch(url,{
       method:"GET",
@@ -622,7 +624,7 @@ const SonoState = (props) => {
   const searchProducts = async(id) => {
     setLoading(true)
       //* Api Call
-      const url = `http://localhost:5000/api/shop/searchProducts`
+      const url = `${API_URL}/api/shop/searchProducts`
       const response = await fetch(url, {
           method: "GET",
           headers: {
