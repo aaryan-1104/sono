@@ -137,10 +137,10 @@ const HomeRemain = () => {
             >
               <Link className={`nav-link p-0`} style={{"textDecoration":"none", "color":"black"}}  to="/shop/products/filter" onClick={()=>{handleSortParam({"category":["men","tshirt"],"brand":""})}}>
                 <img
-                  src="https://picsum.photos/300.webp?random=1"
+                  src="https://sonobucket.s3.amazonaws.com/Brands/Brand-2-max_all_articles.jpg"
                   className="card-img-top "
                   alt="..."
-                  style={{ "borderRadius": "50%" }}
+                  // style={{ "borderRadius": "50%" }}
                 />
 
                 <div className="card-img-overlay d-flex align-items-center justify-content-center d-flex align-items-center justify-content-center" >
@@ -155,10 +155,10 @@ const HomeRemain = () => {
             >
               <Link className={`nav-link p-0`} style={{"textDecoration":"none", "color":"black"}}  to="/shop/products/filter" onClick={()=>{handleSortParam({"category":["women","dress"],"brand":""})}}>
                 <img
-                  src="https://picsum.photos/300.webp?random=2"
+                  src="https://sonobucket.s3.amazonaws.com/Brands/Brand-2-max_all_articles.jpg"
                   className="card-img-top"
                   alt="..."
-                  style={{ "borderRadius": "50%" }}
+                  // style={{ "borderRadius": "50%" }}
                 />
 
                 <div className="card-img-overlay d-flex align-items-center justify-content-center" >
@@ -173,9 +173,9 @@ const HomeRemain = () => {
             >
               <Link className={`nav-link p-0`} style={{"textDecoration":"none", "color":"black"}}  to="/shop/products/filter" onClick={()=>{handleSortParam({"category":["men","shirt"],"brand":""})}}>
                 <img
-                  src="https://picsum.photos/300.webp?random=3"
+                  src="https://sonobucket.s3.amazonaws.com/Brands/Brand-2-max_all_articles.jpg"
                   className="card-img-top"
-                  style={{ "borderRadius": "50%" }}
+                  // style={{ "borderRadius": "50%" }}
                   alt="..."
                 />
 
@@ -191,9 +191,9 @@ const HomeRemain = () => {
             >
               <Link className={`nav-link p-0`} style={{"textDecoration":"none", "color":"black"}}  to="/shop/products/filter" onClick={()=>{handleSortParam({"category":["men","jacket"],"brand":""})}}>
                 <img
-                  src="https://picsum.photos/300.webp?random=4"
+                  src="https://sonobucket.s3.amazonaws.com/Brands/Brand-2-max_all_articles.jpg"
                   className="card-img-top"
-                  style={{ "borderRadius": "50%" }}
+                  // style={{ "borderRadius": "50%" }}
                   alt="..."
                 />
                 
@@ -210,9 +210,9 @@ const HomeRemain = () => {
             >
               <Link className={`nav-link p-0`} style={{"textDecoration":"none", "color":"black"}}  to="/shop/products/filter" onClick={()=>{handleSortParam({"category":["footwear","men"],"brand":""})}}>
                 <img
-                  src="https://picsum.photos/300.webp?random=5"
+                  src="https://sonobucket.s3.amazonaws.com/Brands/Brand-2-max_all_articles.jpg"
                   className="card-img-top"
-                  style={{ "borderRadius": "50%" }}
+                  // style={{ "borderRadius": "50%" }}
                   alt="..."
                 />
 
@@ -232,9 +232,9 @@ const HomeRemain = () => {
             >
               <Link className={`nav-link p-0`} style={{"textDecoration":"none", "color":"black"}}  to="/shop/products/filter" onClick={()=>{handleSortParam({"category":["men","trackpants"],"brand":""})}}>
                 <img
-                  src="https://picsum.photos/300.webp?random=6"
+                  src="https://sonobucket.s3.amazonaws.com/Deal+of+the+Day/Deal-5-Ethnic_Collection_for_you.jpg"
                   className="card-img-top"
-                  style={{ "borderRadius": "50%" }}
+                  // style={{ "borderRadius": "50%" }}
                   alt="..."
                 />
                 <div className="card-img-overlay d-flex align-items-center justify-content-center" >
@@ -248,9 +248,9 @@ const HomeRemain = () => {
             >
               <Link className={`nav-link p-0`} style={{"textDecoration":"none", "color":"black"}}  to="/shop/products/filter" onClick={()=>{handleSortParam({"category":["men","formal"],"brand":""})}}>
                 <img
-                  src="https://picsum.photos/300.webp?random=7"
+                  src="https://sonobucket.s3.amazonaws.com/Deal+of+the+Day/Deal-5-Ethnic_Collection_for_you.jpg"
                   className="card-img-top"
-                  style={{ "borderRadius": "50%" }}
+                  // style={{ "borderRadius": "50%" }}
                   alt="..."
                 />    
                 <div className="card-img-overlay d-flex align-items-center justify-content-center" >
@@ -264,9 +264,9 @@ const HomeRemain = () => {
             >
               <Link className={`nav-link p-0`} style={{"textDecoration":"none", "color":"black"}}  to="/shop/products/filter" onClick={()=>{handleSortParam({"category":["men","jeans"],"brand":""})}}>
                 <img
-                  src="https://picsum.photos/300.webp?random=8"
+                  src="https://sonobucket.s3.amazonaws.com/Deal+of+the+Day/Deal-5-Ethnic_Collection_for_you.jpg"
                   className="card-img-top"
-                  style={{ "borderRadius": "50%" }}
+                  // style={{ "borderRadius": "50%" }}
                   alt="..."
                 /> 
                 <div className="card-img-overlay d-flex align-items-center justify-content-center" >
@@ -280,9 +280,9 @@ const HomeRemain = () => {
             >
               <Link className={`nav-link p-0`} style={{"textDecoration":"none", "color":"black"}}  to="/shop/products/filter" onClick={()=>{handleSortParam({"category":["accessories","men"],"brand":""})}}>
                 <img
-                  src="https://picsum.photos/300.webp?random=9"
+                  src="https://sonobucket.s3.amazonaws.com/Deal+of+the+Day/Deal-5-Ethnic_Collection_for_you.jpg"
                   className="card-img-top"
-                  style={{ "borderRadius": "50%" }}
+                  // style={{ "borderRadius": "50%" }}
                   alt="..."
                 />              
                 <div className="card-img-overlay d-flex align-items-center justify-content-center" >
@@ -297,9 +297,9 @@ const HomeRemain = () => {
             >
               <Link className={`nav-link p-0`} style={{"textDecoration":"none", "color":"black"}}  to="/shop/products/filter" onClick={()=>{handleSortParam({"category":["footwear","women"],"brand":""})}}>
                 <img
-                  src="https://picsum.photos/300.webp?random=10"
+                  src="https://sonobucket.s3.amazonaws.com/Deal+of+the+Day/Deal-5-Ethnic_Collection_for_you.jpg"
                   className="card-img-top"
-                  style={{ "borderRadius": "50%" }}
+                  // style={{ "borderRadius": "50%" }}
                   alt="..."
                 /> 
                 <div className="card-img-overlay d-flex align-items-center justify-content-center" >
@@ -311,195 +311,7 @@ const HomeRemain = () => {
           </div>
         </div>
       </div>
-
-      <div className="" style={{"backgroundColor":"#FFC1AD"}} >
-        <h2 className="py-3 px-3">Trending in Western Wear</h2>
-        <div className="d-flex flex-col">
-          <div className="card-group mb-5">
-            <div className="card mx-3">
-              <img
-                src="https://picsum.photos/300.webp?random=1"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3">
-              <img
-                src="https://picsum.photos/300.webp?random=2"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3">
-              <img
-                src="https://picsum.photos/300.webp?random=3"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3">
-              <img
-                src="https://picsum.photos/300.webp?random=4"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3">
-              <img
-                src="https://picsum.photos/300.webp?random=5"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className=" "  style={{"backgroundImage":`url(${circlescatterhaikei})`,"backgroundSize":"100%"}} >
-        <h2 className="py-3 px-3">Trending in Indian Wear</h2>
-        <div className="d-flex flex-col">
-          <div className="card-group mb-5">
-            <div className="card mx-3">
-              <img
-                src="https://picsum.photos/300.webp?random=1"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3">
-              <img
-                src="https://picsum.photos/300.webp?random=2"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3">
-              <img
-                src="https://picsum.photos/300.webp?random=3"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3">
-              <img
-                src="https://picsum.photos/300.webp?random=4"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3">
-              <img
-                src="https://picsum.photos/300.webp?random=5"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="" style={{"backgroundColor":"#fcff6b"}}>
-        <h2 className="py-3 px-3">Trending in Sports Wear</h2>
-        <div className="d-flex flex-col">
-          <div className="card-group mb-5">
-            <div className="card mx-3" style={{"boxShadow":"-7px -7px 16px rgba(255,255,255,0.5), 7px 7px 16px #d1cdc77e"}}>
-              <img
-                src="https://picsum.photos/300.webp?random=1"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3"style={{"boxShadow":"-7px -7px 16px rgba(255,255,255,0.5), 7px 7px 16px #d1cdc77e"}}>
-              <img
-                src="https://picsum.photos/300.webp?random=2"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3"style={{"boxShadow":"-7px -7px 16px rgba(255,255,255,0.5), 7px 7px 16px #d1cdc77e"}}>
-              <img
-                src="https://picsum.photos/300.webp?random=3"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3"style={{"boxShadow":"-7px -7px 16px rgba(255,255,255,0.5), 7px 7px 16px #d1cdc77e"}}>
-              <img
-                src="https://picsum.photos/300.webp?random=4"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-            <div className="card mx-3"style={{"boxShadow":"-7px -7px 16px rgba(255,255,255,0.5), 7px 7px 16px #d1cdc77e"}}>
-              <img
-                src="https://picsum.photos/300.webp?random=5"
-                className="card-img-top"
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   );
 };

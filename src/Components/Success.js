@@ -8,7 +8,7 @@ import Loader from './Loader'
 const Success = () => {
     const context=useContext(sonoContext)
     // eslint-disable-next-line
-    const {cart, loading}=context;
+    const {loading}=context;
     const navigate=useNavigate();
     const handleContinueShopping=()=>{
         navigate("/")
@@ -20,7 +20,7 @@ const Success = () => {
                     
                     <h1>Thank you for shopping with us</h1>
                     <div className="m-0 mt-5">
-                        <h2>Your has been confirmed</h2>
+                        <h2>Your Order has been confirmed</h2>
                         <div className='text-center my-5 d-grid col-md-6'>
                             <button className="btn shadow-none border-none" style={{"backgroundColor":"#E6E2DD"}} onClick={handleContinueShopping}>Continue Shopping</button>
                         </div>

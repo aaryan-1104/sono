@@ -27,8 +27,6 @@ const SonoState = (props) => {
   const initialCartCount=0;
   const [cartCount, setCartCount]= useState(initialCartCount)
 
-  const [stripeToken, setstripeToken] = useState(null);
-
   const [loading, setLoading]=useState(false)
 
   const initialFilterProduct=[];
@@ -36,10 +34,16 @@ const SonoState = (props) => {
 
   const initialSearchedProducts=[];
   const [searchedProducts, setSearchedProducts] = useState(initialSearchedProducts)
+  
+  const navigate = useNavigate();
 
-  // const [paymentStatus, setPaymentStatus]=useState(false)
-
-  const navigate=useNavigate();
+  const manageStateAfterPayment=async(json1,initialCart,initialCartCount,loadingStatus,path)=>{
+    setYourOrderList(json1)
+    setCart(initialCart);
+    setCartItemCount(initialCartCount);
+    setLoading(loadingStatus);
+    navigate(path)
+  }
 
   //Todo Get Count of items in Cart
   const setCartItemCount=(num)=>{
@@ -84,7 +88,7 @@ const SonoState = (props) => {
   //todo get Filtered Products 
   const getFilteredProduct = async()=>{
     setLoading(true)
-    const url = "https://sono-backend.herokuapp.com/api/shop/getAllProducts/filter"
+    const url = "http://localhost:5000/api/shop/getAllProducts/filter"
     
     //* Api Call
     const response = await fetch(url, {
@@ -103,7 +107,7 @@ const SonoState = (props) => {
   //todo get Products 
   const getProducts = async (categ) => {
     setLoading(true)
-    const url = "https://sono-backend.herokuapp.com/api/shop/getAllProducts"
+    const url = "http://localhost:5000/api/shop/getAllProducts"
 
     //* Api Call
     const response = await fetch(url, {
@@ -123,7 +127,7 @@ const SonoState = (props) => {
   //todo get Product details 
   const getProductDetail = async (id) => {
     setLoading(true)
-    const url = "https://sono-backend.herokuapp.com/api/shop/getProduct"
+    const url = "http://localhost:5000/api/shop/getProduct"
 
     //* Api Call
     const response = await fetch(url, {
@@ -150,8 +154,8 @@ const SonoState = (props) => {
 
   // TODO Add to Wishlist
   const addToWishlist = async (productId) => {
-    // setLoading(true)
-    const url = `https://sono-backend.herokuapp.com/api/wishlist/addToWishlist`;
+    setLoading(true)
+    const url = `http://localhost:5000/api/wishlist/addToWishlist`;
 
   //* Api Call
     const response = await fetch(url, {
@@ -185,13 +189,13 @@ const SonoState = (props) => {
     setWishlist(wishlist.concat(newItem));
     if(json==="already present")
       console.log(json)
-    // setTimeout(()=>{setLoading(false)},400)
+    setTimeout(()=>{setLoading(false)},400)
   };
 
   // TODO Get the Wishlist
   const getWishlist=async()=>{
     setLoading(true)
-    const url='https://sono-backend.herokuapp.com/api/wishlist/getWishlist'
+    const url='http://localhost:5000/api/wishlist/getWishlist'
 
     const response=await fetch(url,{
       method:"GET",
@@ -210,7 +214,7 @@ const SonoState = (props) => {
   //todo: Remove From Wishlist
   const removeFromWishlist = async(productWishId) => {
     //* Api Call
-    const url = `https://sono-backend.herokuapp.com/api/wishlist/removeFromWishlist`
+    const url = `http://localhost:5000/api/wishlist/removeFromWishlist`
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
@@ -233,7 +237,7 @@ const SonoState = (props) => {
 
   //Todo Get the cart
   const getCart=async()=>{
-    const url="https://sono-backend.herokuapp.com/api/cart/getCart";
+    const url="http://localhost:5000/api/cart/getCart";
     setLoading(true)
     
     //*Api call
@@ -272,7 +276,7 @@ const SonoState = (props) => {
 
   //Todo Added to cart
   const addToCart=async(productId)=>{
-    const url="https://sono-backend.herokuapp.com/api/cart/addToCart";
+    const url="http://localhost:5000/api/cart/addToCart";
     setLoading(true)
     
     //*Api call
@@ -321,7 +325,7 @@ const SonoState = (props) => {
   //TODO: Update quantity of a Product in Cart
   const updateQuantity = async(bool,cartProductId)=>{
 
-    const url = `https://sono-backend.herokuapp.com/api/cart/updateCart`
+    const url = `http://localhost:5000/api/cart/updateCart`
     const response = await fetch(url, {
       method:"PUT",
       headers:{
@@ -352,7 +356,7 @@ const SonoState = (props) => {
   //todo: Remove From Cart
   const removeFromCart = async(productCartId) => {
     //* Api Call
-    const url = `https://sono-backend.herokuapp.com/api/cart/removeFromCart`
+    const url = `http://localhost:5000/api/cart/removeFromCart`
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
@@ -375,7 +379,7 @@ const SonoState = (props) => {
   
   //todo: Add a new address
   const addAddress=async(firstName,lastName,contactNumber,addressLine1,addressLine2,pincode,city,district,state,country)=>{
-    const url= "https://sono-backend.herokuapp.com/api/address/addAddress";
+    const url= "http://localhost:5000/api/address/addAddress";
 
     const address={
       "firstName":firstName,
@@ -417,7 +421,7 @@ const SonoState = (props) => {
   
   //todo: Update a address
   const updateAddress=async(addressId,firstName,lastName,contactNumber,addressLine1,addressLine2,pincode,city,district,state,country)=>{
-    const url= "https://sono-backend.herokuapp.com/api/address/updateAddress";
+    const url= "http://localhost:5000/api/address/updateAddress";
 
     const address={
       "firstName":firstName,
@@ -472,7 +476,7 @@ const SonoState = (props) => {
   
   //Todo Set the address as Primary Address and remove the older one if exists
   const setPrimaryAddress=async(addressId)=>{
-    const url= "https://sono-backend.herokuapp.com/api/address/setPrimary";
+    const url= "http://localhost:5000/api/address/setPrimary";
     setLoading(true);
     const response=await fetch(url,{
       method:"PUT",
@@ -505,7 +509,7 @@ const SonoState = (props) => {
 
   //Todo Delete a Address
   const deleteAddress=async(addressId)=>{
-    const url= "https://sono-backend.herokuapp.com/api/address/deleteAddress";
+    const url= "http://localhost:5000/api/address/deleteAddress";
     const response=await fetch(url,{
       method:"DELETE",
       headers:{
@@ -531,7 +535,7 @@ const SonoState = (props) => {
 
   //Todo Get all the Addresses
   const getAddress=async()=>{
-    const url= "https://sono-backend.herokuapp.com/api/address/getAddress";
+    const url= "http://localhost:5000/api/address/getAddress";
     const response=await fetch(url,{
       method:"GET",
       headers:{
@@ -558,19 +562,12 @@ const SonoState = (props) => {
       setAddressList(json.address)
     }
   }
-  
-  //Todo Add the Stripe Token  for Payment
-  const setstripePaymentToken=(token)=>{
-    // setstripeToken(token);
-    localStorage.setItem('stripeToken', JSON.stringify(token))
-    console.log(JSON.parse(localStorage.getItem('stripeToken')))
-  }
 
   //Todo Add items to "Your Order" section with order Id(Along with Payment)
   const makePaymentRequest= async()=>{
     const stripeToken=JSON.parse(localStorage.getItem('stripeToken'))
 
-    const url = "https://sono-backend.herokuapp.com/api/checkout/payment"
+    const url = "http://localhost:5000/api/checkout/payment"
     setLoading(true);
     // setPaymentStatus(false);
     const data={
@@ -597,7 +594,7 @@ const SonoState = (props) => {
           "shippingAddress":localStorage.getItem('primaryAddress')
         }
 
-        const url='https://sono-backend.herokuapp.com/api/orders/addOrder';
+        const url='http://localhost:5000/api/orders/addOrder';
         const response=await fetch(url,{
           method:'POST',
           headers:{
@@ -620,7 +617,7 @@ const SonoState = (props) => {
     
     //Todo Get all items of "Your Order" section
     const getYourOrders=async()=>{
-      const url= "https://sono-backend.herokuapp.com/api/orders/getOrders";
+      const url= "http://localhost:5000/api/orders/getOrders";
     setLoading(true)
     const response=await fetch(url,{
       method:"GET",
@@ -641,7 +638,7 @@ const SonoState = (props) => {
   const searchProducts = async(id) => {
     setLoading(true)
       //* Api Call
-      const url = `https://sono-backend.herokuapp.com/api/shop/searchProducts`
+      const url = `http://localhost:5000/api/shop/searchProducts`
       const response = await fetch(url, {
           method: "GET",
           headers: {
@@ -659,7 +656,7 @@ const SonoState = (props) => {
   
   return (
     <SonoContext.Provider
-    value={{loading, products, getProducts, productDetail, getProductDetail, wishlist, addToWishlist, getWishlist, removeFromWishlist, cart, getCart, addToCart, removeFromCart, cartValue, addressList, getAddress, addAddress, updateAddress, setPrimaryAddress, deleteAddress, yourOrderList, getYourOrders, stripeToken, setstripePaymentToken, makePaymentRequest, cartCount, setCartItemCount, setProductFilterCategory, getFilteredProduct, filteredProducts, searchedProducts, searchProducts, updateQuantity}}
+    value={{manageStateAfterPayment, loading, products, getProducts, productDetail, getProductDetail, wishlist, addToWishlist, getWishlist, removeFromWishlist, cart, getCart, addToCart, removeFromCart, cartValue, addressList, getAddress, addAddress, updateAddress, setPrimaryAddress, deleteAddress, yourOrderList, getYourOrders, makePaymentRequest, cartCount, setCartItemCount, setProductFilterCategory, getFilteredProduct, filteredProducts, searchedProducts, searchProducts, updateQuantity}}
     >
       {props.children}
     </SonoContext.Provider>
