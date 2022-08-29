@@ -1,41 +1,43 @@
 import React from 'react'
-import {useEffect, useContext } from 'react'
+import {useEffect, useContext, useState } from 'react'
 import sonoContext from '../context/notes/sonoContext'
 import CartProduct from './CartProduct'
 import Loader from './Loader'
 import { Link, useLocation } from "react-router-dom";
 
-import StripeCheckout from 'react-stripe-checkout';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import CheckoutForm from './CheckoutForm';
+
+const successMessage = () => {
+    return (
+      <div className="success-msg">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-check2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+        </svg>
+        <div className="title">Payment Successful</div>
+      </div>
+    )
+  }
+
+const stripePromise = loadStripe("pk_test_51JyuqHSFiHGN0dpnq16IJutUBCBt2ronLwP69yD6eAezw4HFiiazAqnijwG0OJdn7XsJd9cb6g4x7mLuDcq1E9fl00r05DC2Xp");
 
 const CartList = () => {
+
     const context=useContext(sonoContext)
-    const {loading, cart, getCart, cartValue, setstripePaymentToken, makePaymentRequest}=context;
-    const address=localStorage.getItem("primaryAddress")? JSON.parse(localStorage.getItem("primaryAddress")):{};
+    const {loading, cart, getCart, cartValue}=context;
+    const address=localStorage.getItem("primaryAddress")!==undefined? JSON.parse(localStorage.getItem("primaryAddress")) : {};
     const location=useLocation()
 
     useEffect(() => {
         getCart()
         // eslint-disable-next-line
     }, [location])
-    
-    const onToken=(token)=>{
-        setstripePaymentToken(token);
-        setTimeout(()=>{
-            JSON.parse(localStorage.getItem('stripeToken')) && makePaymentRequest();
-        },4000)
-    }
-    
-    const onOpened=()=>{
-        console.log("opened payment gateway");
-    }
-    const onClosed=()=>{
-        console.log("closed payment gateway");
-    }
 
     return (
         <div className="container" style={{"marginTop":"125px"}}>
-            {loading ?<Loader/>:<div>
-                
+            {loading ?<Loader/>:
+            <div>
                 <h1>Your Shopping Cart</h1>
                 {cart.length>0?
                 <div className='row'>
@@ -89,24 +91,9 @@ const CartList = () => {
                             <span className='fs-5'>Total Amount</span> <span  className='fs-5' style={{"float":"right"}}>{cartValue}</span>
                         </div>
                         <div>
-                            <StripeCheckout
-                                name="Sono Fashion"
-                                // image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                ComponentClass="div"
-                                amount={cartValue*100}
-                                shippingAddress
-                                billingAddress
-                                currency="INR"
-                                stripeKey="pk_test_51JyuqHSFiHGN0dpnq16IJutUBCBt2ronLwP69yD6eAezw4HFiiazAqnijwG0OJdn7XsJd9cb6g4x7mLuDcq1E9fl00r05DC2Xp"
-                                token={onToken}
-                                opened={onOpened}
-                                closed={onClosed}
-                            >
-                                {/* #E6E2DD */}
-                                <div className='text-center mt-5 d-grid'>
-                                    <button className="btn shadow-none border-none" style={{"backgroundColor":"rgb(0, 148, 115,0.3)"}}>Place your order</button>
-                                </div>
-                            </StripeCheckout>
+                            <Elements stripe={stripePromise}>
+                                <CheckoutForm amount={cartValue} />
+                            </Elements>
                         </div>
                     </div>
                     }
