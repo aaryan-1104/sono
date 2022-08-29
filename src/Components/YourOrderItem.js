@@ -15,7 +15,14 @@ const YourOrderItem = (props) => {
     }
 
     var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 7);
+    if(tomorrow.getDate()>23){
+        tomorrow.setMonth(tomorrow.getMonth()+1);
+        tomorrow.setDate(tomorrow.getDate() + 8);
+    }
+    else{
+        tomorrow.setDate(tomorrow.getDate() + 8);
+    }
+
   return (
         <div>
             <div className="card my-3" key={_id}>
