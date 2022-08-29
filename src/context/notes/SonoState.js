@@ -34,7 +34,8 @@ const SonoState = (props) => {
 
   const initialSearchedProducts=[];
   const [searchedProducts, setSearchedProducts] = useState(initialSearchedProducts)
-   
+  
+  const [progress, setProgress]=useState(0)
   const navigate = useNavigate();
 
   const manageStateAfterPayment=async(json1,initialCart,initialCartCount,loadingStatus,path)=>{
@@ -640,7 +641,7 @@ const SonoState = (props) => {
   return (
     <SonoContext.Provider
 
-    value={{manageStateAfterPayment, loading, products, getProducts, productDetail, getProductDetail, wishlist, addToWishlist, getWishlist, removeFromWishlist, cart, getCart, addToCart, removeFromCart, cartValue, addressList, getAddress, addAddress, updateAddress, setPrimaryAddress, deleteAddress, yourOrderList, getYourOrders, makePaymentRequest, cartCount, setCartItemCount, setProductFilterCategory, getFilteredProduct, filteredProducts, searchedProducts, searchProducts, updateQuantity}}
+    value={{manageStateAfterPayment,progress,setProgress, loading, setLoading, products, getProducts, productDetail, getProductDetail, wishlist, addToWishlist, getWishlist, removeFromWishlist, cart, getCart, addToCart, removeFromCart, cartValue, addressList, getAddress, addAddress, updateAddress, setPrimaryAddress, deleteAddress, yourOrderList, getYourOrders, makePaymentRequest, cartCount, setCartItemCount, setProductFilterCategory, getFilteredProduct, filteredProducts, searchedProducts, searchProducts, updateQuantity}}
 
     >
       {props.children}
