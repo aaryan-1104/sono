@@ -1,6 +1,6 @@
 import React from "react";
 import blobscatterhaikei from "../resource/blobscatterhaikei.svg"
-import circlescatterhaikei from "../resource/circlescatterhaikei.svg"
+// import circlescatterhaikei from "../resource/circlescatterhaikei.svg"
 import polygonscatterhaikei from "../resource/polygonscatterhaikei.svg"
 
 import { Link } from 'react-router-dom'
@@ -311,7 +311,6 @@ const HomeRemain = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

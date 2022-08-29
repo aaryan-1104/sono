@@ -45,7 +45,6 @@ function App() {
               <div className="App">
                 <Navbar/>
                 <Alert warn={alert} />  
-
                 <Routes>
                   <Route exact path="/login" element={<Login showAlert={showAlert}/>}></Route>
                   <Route exact path="/signup" element={<SignUp showAlert={showAlert}/>}></Route>
