@@ -34,9 +34,7 @@ const SonoState = (props) => {
 
   const initialSearchedProducts=[];
   const [searchedProducts, setSearchedProducts] = useState(initialSearchedProducts)
-  
-  const [progress, setProgress]=useState(0)
- 
+   
   const navigate = useNavigate();
 
   const manageStateAfterPayment=async(json1,initialCart,initialCartCount,loadingStatus,path)=>{

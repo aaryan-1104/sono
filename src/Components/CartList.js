@@ -1,5 +1,5 @@
 import React from 'react'
-import {useEffect, useContext, useState } from 'react'
+import {useEffect, useContext } from 'react'
 import sonoContext from '../context/notes/sonoContext'
 import CartProduct from './CartProduct'
 import Loader from './Loader'
@@ -8,17 +8,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm';
-
-const successMessage = () => {
-    return (
-      <div className="success-msg">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-check2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
-        </svg>
-        <div className="title">Payment Successful</div>
-      </div>
-    )
-  }
 
 const stripePromise = loadStripe("pk_test_51JyuqHSFiHGN0dpnq16IJutUBCBt2ronLwP69yD6eAezw4HFiiazAqnijwG0OJdn7XsJd9cb6g4x7mLuDcq1E9fl00r05DC2Xp");
 
