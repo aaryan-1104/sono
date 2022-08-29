@@ -14,6 +14,8 @@ const YourOrderItem = (props) => {
         getProductDetail(productId);
     }
 
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 7);
   return (
         <div>
             <div className="card my-3" key={_id}>
@@ -30,7 +32,7 @@ const YourOrderItem = (props) => {
                 </div>
                 <div className='ms-4 mt-4'>
                     <div>
-                        <h3>Arriving By : 27/01/2022</h3>
+                        <h3>Arriving By : {tomorrow.getFullYear()+'-'+tomorrow.getMonth()+'-'+tomorrow.getDate()}</h3>
                     </div>
                 </div>
                 <div className="row g-0 ms-4 mt-4">
