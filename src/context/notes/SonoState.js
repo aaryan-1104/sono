@@ -35,6 +35,8 @@ const SonoState = (props) => {
   const initialSearchedProducts=[];
   const [searchedProducts, setSearchedProducts] = useState(initialSearchedProducts)
   
+  const [progress, setProgress]=useState(0)
+ 
   const navigate = useNavigate();
 
   const manageStateAfterPayment=async(json1,initialCart,initialCartCount,loadingStatus,path)=>{
@@ -258,12 +260,8 @@ const SonoState = (props) => {
     else{
       const primaryAddress=JSON.stringify(json.addressPrimary[0])
 
-      if(!localStorage.getItem("primaryAddress")){
+      if(json.addressPrimary[0]!==undefined){
         localStorage.setItem("primaryAddress",primaryAddress);
-      }
-      else{
-        localStorage.removeItem("primaryAddress");
-        localStorage.setItem("primaryAddress",primaryAddress)
       }
     }
     //* Changing state of cart        
@@ -409,12 +407,8 @@ const SonoState = (props) => {
     const primaryAddress=JSON.stringify(json.addressPrimary[0])
     // const allAddress=JSON.stringify(json)
     
-    if(!localStorage.getItem("primaryAddress")){
+    if(json.addressPrimary[0]!==undefined){
       localStorage.setItem("primaryAddress",primaryAddress);
-    }
-    else{
-      localStorage.removeItem("primaryAddress");
-      localStorage.setItem("primaryAddress",primaryAddress)
     }
     setAddressList(json.addressList)
   }  
@@ -550,15 +544,9 @@ const SonoState = (props) => {
     if(json.success){
       const primaryAddress=JSON.stringify(json.addressPrimary[0])
       // const allAddress=JSON.stringify(json)
-      
-      if(!localStorage.getItem("primaryAddress")){
+      if(json.addressPrimary[0]!==undefined){
         localStorage.setItem("primaryAddress",primaryAddress);
       }
-      else{
-        localStorage.removeItem("primaryAddress");
-        localStorage.setItem("primaryAddress",primaryAddress)
-      }
-      
       setAddressList(json.address)
     }
   }
@@ -569,7 +557,6 @@ const SonoState = (props) => {
 
     const url = "http://localhost:5000/api/checkout/payment"
     setLoading(true);
-    // setPaymentStatus(false);
     const data={
       "tokenId":stripeToken.id,
       "amount":cartValue,
@@ -605,10 +592,8 @@ const SonoState = (props) => {
         })
         const json1 = await response.json();
         setYourOrderList(json1)
-        // setPaymentStatus(true);
         setCart(initialCart);
         setCartItemCount(0);
-        // if(paymentStatus)
         setLoading(false);
         navigate("/shop/payment/success")
         localStorage.removeItem('stripeToken')
@@ -656,7 +641,9 @@ const SonoState = (props) => {
   
   return (
     <SonoContext.Provider
+
     value={{manageStateAfterPayment, loading, products, getProducts, productDetail, getProductDetail, wishlist, addToWishlist, getWishlist, removeFromWishlist, cart, getCart, addToCart, removeFromCart, cartValue, addressList, getAddress, addAddress, updateAddress, setPrimaryAddress, deleteAddress, yourOrderList, getYourOrders, makePaymentRequest, cartCount, setCartItemCount, setProductFilterCategory, getFilteredProduct, filteredProducts, searchedProducts, searchProducts, updateQuantity}}
+
     >
       {props.children}
     </SonoContext.Provider>

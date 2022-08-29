@@ -311,7 +311,6 @@ const HomeRemain = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
